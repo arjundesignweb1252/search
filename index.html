@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Discover</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="icon" href="assets/D.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="assets/Discover.png" alt="">
+
+        <div class="nav-logo">
+            <ul>
+                <li><a href="">Gmail</a></li>
+                <li><a href="">Image</a></li>
+               <li> <span  ><img src="assets/a-name.jpg" id="profile-pic" class="fa-user" alt=""></span></li>
+               <label for="input-file" title="profile"><i class="fa-solid fa-camera-retro"></i></label>
+               <input type="file" accept="image/jpeg, image/jpg, image/png" id="input-file">
+            </ul>
+            </div>
+    </nav>
+    <!-- <i class="fa-solid fa-user" id="profile-pic"></i> -->
+
+    <div class="discover-content">
+        <div class="content">
+        <img src="assets/Discover.png" alt="">
+        <div class="search">
+            <input type="search"  placeholder="Search or type a URL" >
+            <ul>
+           <li> <i class="fa-solid fa-microphone" style="color: red; cursor: pointer;" title="microphone"></i></li>
+           <li> <i class="fa-solid fa-camera" style="color: red; cursor: pointer;" title="camera">
+        </i></li>
+        </ul>
+        </div>
+        <div class="google">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ75Q9EvClA_AXpsxkvrXrLRQS6iLAI-Y_MV9FKjZDSEw&s" alt="">
+        </div>
+    </div>
+    </div>
+
+    <div class="india">
+<span>India</span> <span>ENG</span>
+    </div>
+    <div class="privacy">
+        <ul class="d-flex">
+            <li><a href="">Privacy</a></li>
+            <li><a href="">Terms</a></li>
+            <li><a href="">Settings</a></li>
+        </ul>
+    </div>
+    <label id="switch" class="switch">
+        <input type="checkbox" onchange="toggleTheme()" id="slider">
+        <span class="slider round"></span>
+    </label>
+
+    <script>
+        function setTheme(themeName) {
+                localStorage.setItem('theme', themeName);
+                document.documentElement.className = themeName;
+            }
+    
+            // function to toggle between light and dark theme
+            function toggleTheme() {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            }
+    
+            // Immediately invoked function to set the theme on initial load
+            (function () {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-dark');
+                    document.getElementById('slider').checked = false;
+                } else {
+                    setTheme('theme-light');
+                  document.getElementById('slider').checked = true;
+                }
+            })();
+      </script>
+
+      <script>
+        let ProfilePic = document.getElementById("profile-pic");
+        let inputFile = document.getElementById("input-file");
+
+        inputFile.onchange = function(){
+            ProfilePic.src = URL.createObjectURL(inputFile.files[0]);
+        }
+      </script>
+</body>
+</html>
